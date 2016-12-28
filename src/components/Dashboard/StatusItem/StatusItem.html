@@ -1,0 +1,26 @@
+<tr>
+  <td>{{ item.name }}</td>
+  <td>{{ item.amount }}</td>
+  <td>
+    <span v-if="item.status === 'complete'" class="badge badge-success badge-icon">
+      <i class="fa fa-check" aria-hidden="true"></i>
+      <span>Complete</span>
+    </span>
+    <span v-else-if="item.status === 'pending'" class="badge badge-warning badge-icon">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <span>Pending</span>
+    </span>
+    <span v-else-if="item.status === 'confirm_payment'" class="badge badge-info badge-icon">
+      <i class="fa fa-credit-card" aria-hidden="true"></i>
+      <span>Confirm Payment</span>
+    </span>
+    <span v-else-if="item.status === 'cancelled'" class="badge badge-danger badge-icon">
+      <i class="fa fa-times" aria-hidden="true"></i>
+      <span>Cancelled</span>
+    </span>
+    <span v-else-if="item.status === 'shipped'" class="badge badge-primary badge-icon">
+      <i class="fa fa-truck" aria-hidden="true"></i>
+      <span>Shipped</span>
+    </span>
+  </td>
+</tr>

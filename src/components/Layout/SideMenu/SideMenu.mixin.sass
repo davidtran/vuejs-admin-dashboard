@@ -1,0 +1,62 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+@mixin sidebar-theme($color, $bg, $extend: '')
+  aside.app-sidebar#{$extend}
+    background-color: $bg
+    .sidebar-header
+      .sidebar-brand
+        .highlight
+          background-color: $color
+    .sidebar-menu
+      ul.sidebar-nav
+        & > li
+          & > a
+            .icon
+              @if $extend == ".__inverse"
+                background-color: $bg
+                border: 0px solid $white
+                color: $color
+              @else
+                background-color: rgba($grey-darkest, 0.15)
+                color: rgba($grey-darkest, 0.45)
+
+            .title
+              @if $extend == ".__inverse"
+                color: $color
+              @else
+                color: $grey-darkest
+          &.active
+            & > a
+              .icon
+                @if $extend == ".__inverse"
+                  background-color: $bg
+                  border: 0px solid $white
+                  color: $color
+                @else
+                  background-color: rgba($color, 0.25)
+                  color: rgba($color, 0.75)
+
+              .title
+                @if $extend == ".__inverse"
+                  color: $color
+                @else
+                  color: $color
+          &.dropdown
+            & > .dropdown-menu
+              & > ul
+                & > li
+                  &.section
+                    color: $color
+            &.open
+              & > a
+                &:after
+                  border-right-color: $white
+    .sidebar-footer
+      border-top-color: rgba(0,0,0,0.1)
+      background-color: $bg
+      ul.menu
+        & > li
+          &.dropdown
+            .dropdown-menu
+              border-bottom-color: $color

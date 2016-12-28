@@ -1,0 +1,153 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+@import 'src/assets/style/global.sass'
+
+html, body
+  width: 100%
+  @include font
+  color: $black
+  position: relative
+
+body
+  min-height: 100vh
+  background-color: $grey-lighter
+  overflow-x: hidden
+
+  .app
+    min-height: 100vh
+
+  .app-container
+    padding: 0px
+    min-height: 100vh
+    position: relative
+    overflow-x: hidden
+    padding-left: $sidebar-width
+
+    .content-heading
+      margin-bottom: 30px
+      .title
+        font-size: 1.75em
+        font-weight: 200
+
+    & > div:first-child, & > ui-view > div:first-child , & > ui-view > ui-view > div:first-child, , & > ui-view > ui-view > ui-view > div:first-child
+      margin-top: 30px
+
+    & > div.row , & > ui-view > div.row, & > ui-view > ui-view > div.row, , & > ui-view > ui-view > ui-view > div.row
+      padding-left: 30px
+      padding-right: 30px
+
+    [class*="col-"]
+        margin-bottom: 30px
+
+    .app-heading
+      @include flex($align: center)
+      padding-left: 30px
+      padding-right: 30px
+
+      .profile-img
+        width: 80px
+        height: 80px
+        border-radius: 50%
+        margin-right: 30px
+      .app-title
+        flex: 1
+        .title
+          font-size: 2em
+          font-weight: 200
+
+          .highlight
+            color: $green
+
+        .description
+          margin-top: 5px
+          color: $grey-darkest
+
+
+    &.app-login
+      min-height: 100vh !important
+      & > div:first-child, & > ui-view > div:first-child, & > ui-view > ui-view > div:first-child, & > ui-view > ui-view > ui-view > div:first-child
+        margin-top: 0
+        min-height: 100vh !important
+
+
+    &.app-full
+      height: 100vh !important
+      @include flex($direction: column)
+      & > ui-view
+        @include flex($direction: column)
+        padding: 0 30px
+        margin-bottom: 30px
+        flex: 1
+
+      & > div:first-child, & > ui-view > div:first-child, & > ui-view > ui-view > div:first-child, & > ui-view > ui-view > ui-view > div:first-child
+        margin-top: 0
+      & > *
+        width: 100%
+
+
+*
+  box-sizing: border-box
+
+*:focus
+  outline: 0
+
+a:hover
+  text-decoration: none
+
+.full-height
+  height: 100%
+
+.row
+  margin-bottom: 0
+  & > [class*="col-"]
+    padding-left: 15px
+    padding-right: 15px
+  &.full-height
+    height: 100%
+    & > [class*="col-"]
+      height: 100%
+  &.no-gap
+    margin-left: 0
+    margin-right: 0
+    & > [class*="col-"]
+      padding-left: 0
+      padding-right: 0
+  &.full-width
+    padding-left: 0px !important
+    padding-right: 0px !important
+
+@include breakpoint($sm)
+  .row
+    margin-left: -10.75px
+    margin-right: -10.75px
+    & > [class*="col-"]
+      padding-left: 10.75px
+      padding-right: 10.75px
+  body
+    .app-container
+      padding-left: 0
+      padding-top: $navbar-height
+      .app-heading
+        padding-left: 15px
+        padding-right: 15px
+
+      &.app-full
+        padding-top: $navbar-height-min
+
+      & > div:first-child, & > ui-view > div:first-child, & > ui-view > ui-view > div:first-child, & > ui-view > ui-view > ui-view > div:first-child
+        margin-top: 0px
+      & > div.app-heading-container , & > ui-view > div.app-heading-container , & > ui-view > ui-view > div.app-heading-container , & > ui-view > ui-view > ui-view > div.app-heading-container
+        margin-top: 0
+        .app-heading
+          padding: 30px
+        ul.app-tab
+          margin-bottom: 15px
+          padding: 0px 15px
+      & > div.row , & > ui-view > div.row, & > ui-view > ui-view > div.row, & > ui-view > ui-view > ui-view > div.row
+        padding-left: 15px
+        padding-right: 15px
+
+        & > [class*="col-"]
+          margin-bottom: 15px
+          padding-left: 7.5px
+          padding-right: 7.5px

@@ -1,0 +1,11 @@
+@import '../../components/navbar/navbar.mixin'
+@import '../../components/sidebar/sidebar.mixin'
+@import '../../elements/card/card.mixin'
+@import '../../elements/chart/chart.mixin'
+
+@mixin theme($class, $color, $secondary-color, $bg)
+  .app.app-#{$class}
+    @include sidebar-theme($color, $bg)
+    @include navbar-theme($color, $bg)
+    @include chart-theme($color, $secondary-color)
+    @include card-theme($color)

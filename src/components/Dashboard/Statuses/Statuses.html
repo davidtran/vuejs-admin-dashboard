@@ -1,0 +1,22 @@
+<card title="Last Statuses" addition-class-name="card-mini" body-class="no-padding table-responsive">
+  <div slot="action">
+    <li>
+      <a href="/">
+        <i class="fa fa-refresh"></i>
+      </a>
+    </li>
+  </div>
+
+  <table class="table card-table">
+    <thead>
+      <tr>
+        <th>Products</th>
+        <th class="right">Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <StatusItem v-for="item in items" :item="item"></StatusItem>
+    </tbody>
+  </table>
+</card>

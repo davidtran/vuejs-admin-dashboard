@@ -1,0 +1,27 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+.colorbox
+  width: 100%
+  overflow: hidden
+  background-color: $white
+  border-radius: 3px
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2)
+  margin-bottom: 30px
+  .color1, .color2
+    width: 50%
+    float: left
+    .color
+      width: 100%
+      min-height: 60px
+  .heading
+    text-align: center
+    padding: 5px 10px
+    .title
+      font-size: 0.9em
+    .subtitle
+      font-size: 0.7em
+
+@include breakpoint($sm)
+  .colorbox
+    margin-bottom: 10px

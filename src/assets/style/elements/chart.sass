@@ -1,0 +1,104 @@
+@mixin chart-theme($color, $secondary-color)
+  @include chart-colorize("a", $color)
+  @include chart-colorize("b", $secondary-color)
+  @include chart-label-colorize("a", $color)
+  @include chart-label-colorize("b", $secondary-color)
+  .card-banner
+    @include chart-colorize("a", $white)
+
+@mixin chart-label-colorize($name,$color)
+  .ct-series-#{$name}
+    &:after
+      background-color: $color
+
+@mixin chart-colorize($name,$color)
+  .ct-series-#{$name}
+    .ct-bar, .ct-line, .ct-point
+      stroke: $color
+    .ct-area
+      fill: $color
+    .ct-slice-pie
+      fill: rgba($color, 1)
+      stroke: $white
+      stroke-width: 3
+    .ct-slice-donut
+      stroke: $color
+
+
+@include chart-colorize("a", $green)
+@include chart-colorize("b", $blue-sky)
+@include chart-colorize("c", $black-lighter)
+@include chart-colorize("d", $grey-darkest)
+@include chart-colorize("e", $grey-darker)
+
+.ct-label
+  font-size: 0.85em
+
+.ct-chart-pie
+  .ct-label
+    fill: $white
+    font-weight: 200
+    font-size: 1em
+
+.ct-chart-donut
+  .ct-label
+    fill: $grey-darkest
+    font-weight: 200
+    font-size: 1em
+
+.ct-grid
+  stroke: rgba(0,0,0,0.10)
+  stroke-width: 0.5px
+  stroke-dasharray: 0
+
+.card-banner
+  @include chart-colorize("a", $white)
+  @include chart-colorize("b", $white)
+  @include chart-colorize("c", $white)
+  .ct-grid
+    stroke: rgba(255,255,255,0.20)
+  .ct-label
+    fill: $white !important
+    color: $white !important
+
+.chart-label
+  list-style: none
+  padding: 0
+  margin: 0
+  & > li
+    margin-bottom: 5px
+    padding-left: 30px
+    height: 20px
+    position: relative
+    @include flex($align: center)
+    &:after
+      content: ''
+      position: absolute
+      width: 20px
+      height: 20px
+      border-radius: 10px
+      left: 0
+      top: 50%
+      transform: translate(0, -50%)
+
+
+  @include chart-label-colorize("a", $green)
+  @include chart-label-colorize("b", $blue-sky)
+  @include chart-label-colorize("c", $black-lighter)
+  @include chart-label-colorize("d", $grey-darkest)
+  @include chart-label-colorize("e", $grey-darker)
+
+.ct-chart-sale
+  .ct-label
+    justify-content: center
+    transform: translate(-50%,0)
+    margin-top: 5px
+    font-size: 1em
+    color: rgba($white, 0.6)
+    fill: rgba($white, 0.6)
+
+  .ct-series
+    & > text
+      color: rgba($white, 0.6)
+    & > text:first-of-type
+      display: none

@@ -1,0 +1,16 @@
+
+<card :title="title" addition-class-name="card-chart card-green" body-class="no-padding">
+  <div slot="action">
+    <li>
+      <a href="/">
+        <i class="fa fa-refresh"></i>
+      </a>
+    </li>
+  </div>
+  <chartist
+    class="ct-chart ct-chart-sale"
+    :data="data"
+    :options="config"
+    type="Line">
+  </chartist>
+</card>

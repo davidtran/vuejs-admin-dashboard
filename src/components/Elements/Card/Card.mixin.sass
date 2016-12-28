@@ -1,0 +1,53 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+
+@mixin card-theme($color)
+  .card
+    &.card-tab
+      .card-header > ul, ul.nav-tabs
+        & > li
+          &.active
+            a
+              color: $color
+
+      & > .ng-isolate-scope
+        & > .nav-tabs
+          & > li
+            &.active
+              a
+                color: $color
+
+@mixin banner($name, $color, $font-color)
+  &.card-#{$name}
+    background-color: $color
+    .card-body
+      .icon
+        color: $font-color
+        background-color: rgba($font-color, 0.05)
+
+      .content
+        .value
+          color: $font-color
+    &-light
+      background-color: $white
+      .card-body
+        .icon
+          color: $color
+          background-color: rgba($color, 0.05)
+        .content
+          .value
+            color: $color
+      &:hover
+        background-color: $color
+        .card-body
+          .icon
+            color: $white
+            background-color: rgba($white, 0.1)
+          .content
+            .title, .value
+              color: $white
+    &.card-chart
+      .card-header
+        background-color: $color
+        color: $color

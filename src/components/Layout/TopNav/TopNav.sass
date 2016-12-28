@@ -1,0 +1,459 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+@import './TopNav.mixin.sass'
+
+.navbar
+  height: $navbar-height
+  z-index: $z-navbar
+  background-color: transparent
+  border-bottom: 0 solid transparent
+  border-top: 0
+  border-radius: 0
+  margin-bottom: 0
+  padding: 0 15px
+  margin-bottom: 30px
+
+
+  .navbar-header
+    height: $navbar-height
+    padding: 0px
+    width: $sidebar-width
+    margin-left: -15px
+    position: relative
+    text-align: center
+    @include flex
+
+    .navbar-toggle
+      position: relative
+      display: none
+      height: 100%
+      border: 0
+      border-right: 1px solid $grey
+      padding: 2rem
+      margin: 0
+      border-radius: 0
+      z-index: 1
+
+      &:hover, &:focus
+        cursor: pointer
+        background-color: transparent
+
+    .navbar-brand
+      @include flex($align: center, $justify: center)
+      height: $navbar-height
+      font-size: 1.2em
+      font-weight: 300
+      position: relative
+      margin: 0 auto
+      width: 100%
+      text-align: center
+      color: $black
+
+      .highlight
+        padding: 2px 5px
+        font-weight: 200
+        color: $white
+        border-radius: 2px
+        margin-right: 5px
+  .navbar-collapse
+    background-color: $white
+    border-radius: 2px
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    box-shadow: 0 1px 2px $grey-darker
+
+    .navbar-nav
+      height: $navbar-height - 1px
+      border-bottom: 1px solid transparent
+      @include flex($align: center)
+      margin-top: 0
+      margin-bottom: 0
+
+      & > li
+        @include flex($align: center)
+        height: 100%
+
+        a, a:hover , a:focus
+          background-color: transparent
+          font-size: 1.1em
+          @include font()
+
+        &.navbar-title
+          @include flex($align: center)
+          font-weight: 300
+          font-size: 1.3em
+          height: 50%
+          padding: 0 6rem
+          padding-left: 45px
+          span
+            padding: 0.5rem 0
+          .highlight
+            font-weight: 400
+
+        &.navbar-search
+          input
+            border: none
+            height: 40px
+            padding: 0 20px
+            font-weight: 200
+            border-top-left-radius: 20px
+            border-bottom-left-radius: 20px
+            border: 1px solid $grey
+            border-right: none
+            background-color: transparent
+
+          .btn-search
+            width: 40px
+            height: 40px
+            border-top-right-radius: 20px
+            border-bottom-right-radius: 20px
+            border: 1px solid $grey
+            border-left: none
+            background-color: transparent
+            color: $grey
+            font-size: 1.4em
+
+        &.dropdown
+          &:after
+            @include absolute($left: 50%, $bottom: 0)
+            content: ''
+            display: block
+            width: 0
+            height: 0
+            opacity: 0
+            visibility: hidden
+            border-left: 16px solid transparent
+            border-right: 16px solid transparent
+            border-bottom: 16px solid $grey
+            transform: translate(-50%, 0)
+            transition: all 0.3s ease
+          &:hover
+            .dropdown-menu
+              display: block
+              visibility: visible
+              opacity: 1
+              transform: translate(0, -24px)
+            &:after
+              display: block
+              visibility: visible
+              opacity: 1
+              transform: translate(-50%, -22px)
+
+          .dropdown-menu
+            display: block
+            visibility: hidden
+            position: absolute
+            right: 0
+            top: 100%
+            opacity: 0
+            min-width: 300px
+            transition: all 0.3s ease
+            transform: translate(0, 0)
+            padding-top: 0
+            padding-bottom: 0
+            border: 1px solid $grey
+
+
+            .profile-info
+              .username
+                margin-top: 0
+                margin-bottom: 0
+                background-color: rgba($grey-darkest, 0.1)
+                color: $black
+                border-radius: 3px
+                padding: 1.2rem
+                font-size: 1.6em
+                width: 100%
+                @include ellipsis
+                margin: 0 auto
+                font-weight: 200
+
+            & > ul
+              list-style: none
+              padding: 0
+              margin: 0
+              & > li
+                border: 0
+                border-radius: 0
+                padding: 0
+                border-bottom: 1px solid rgba($grey-darkest, 0.1)
+                margin-bottom: 0
+                font-weight: 300
+                font-size: 0.9em
+
+                a
+                  display: block
+                  text-decoration: none
+                  color: $black
+                  padding: 1.2rem
+                  font-weight: 400
+
+                  .message
+                    @include flex($align: center)
+                    padding-right: 40px
+                    .content
+                      flex: 1
+                      .title
+                        font-weight: 400
+                        font-size: 1em
+                      .description
+                        font-weight: 400
+                        font-size: 0.85em
+                        opacity: 0.4
+                    .profile
+                      width: 30px
+                      height: 30px
+                      border-radius: 50%
+                      margin-right: 8px
+
+                span.badge
+                  border-radius: 3px
+                  font-weight: 400
+                  font-weight: 1.4em
+
+                &:hover
+                  a
+                    background-color: rgba($grey-darkest, 0.1)
+                    color: $black-darker
+                    cursor: pointer
+                &.empty
+                  color: $grey-darkest
+                  font-weight: 200
+
+                &.dropdown-header
+                  background: transparent
+                  padding: 1.2rem
+                  color: $black-darker
+                  font-weight: 400
+                  background-color: rgba($grey-darkest, 0.1)
+                  border-bottom: none
+
+                &.dropdown-footer
+                  background-color: transparent
+                  border-top: 0
+                  font-weight: 300
+                  font-size: 0.9em
+                  text-align: right
+
+                  a
+                    color: $grey-darkest
+                    padding: 1.2rem
+
+                &:last-child
+                  border-bottom: 0
+
+                &.dropdown-empty
+                  padding: 2rem
+                  text-align: center
+                  // color: $grey-darkest
+          &.notification
+            a.dropdown-toggle
+              text-align: center
+              display: block
+              padding: 0 8px
+
+              .icon
+                font-size: 1.6em
+                width: 45px
+                height: 45px
+                background-color: rgba($grey-darkest, 0.15)
+                color: rgba($grey-darkest, 0.3)
+                transition: all 0.2s ease
+                border-radius: 50%
+                @include flex($align: center, $justify: center)
+
+              .count
+                @include absolute($right: 0, $top: 0)
+                @include flex($align: center, $justify: center)
+                font-size: 0.70em
+                font-weight: 400
+                color: $white
+                background-color: rgba($grey-darkest, 0.6)
+                box-shadow: 0 1px 2px rgba($grey-darkest, 0.1)
+                padding: 3px
+                border-radius: 50%
+                width: 20px
+                height: 20px
+                line-height: 1em
+
+              .title
+                display: none
+
+              &:hover
+                .icon
+                  transform: scale(1.1) rotate(7deg)
+
+            &.danger
+              a.dropdown-toggle
+                .icon
+                  background-color: rgba($red, 0.15)
+                  color: rgba($red, 0.3)
+                .count
+                  background-color: rgba($red, 0.7)
+                  box-shadow: 0 1px 2px rgba($red, 0.1)
+            &.warning
+              a.dropdown-toggle
+                .icon
+                  background-color: rgba($orange, 0.15)
+                  color: rgba($orange, 0.3)
+                .count
+                  background-color: rgba($orange, 0.7)
+                  box-shadow: 0 1px 2px rgba($orange, 0.1)
+          &.profile
+            & > a
+              @include flex($align: center)
+              .profile-img
+                width: 60px
+                height: 60px
+                border-radius: 50%
+              .title
+                display: none
+          &.open
+            & > a
+              & , &:hover, a:focus
+                background-color: transparent
+
+      &.navbar-mobile
+        @include flex()
+        display: none
+        position: relative
+        & > li
+          height: 100%
+          .navbar-toggle, .sidebar-toggle
+            height: 100%
+            border: 0
+            margin-top: 0
+            margin-right: 0
+            margin-bottom: 0
+            border-radius: 0
+            padding: 0 15px
+            display: block
+            background-color: transparent
+            font-size: 1.4em
+            @include flex($align: center, $justify: center)
+            .profile-img
+              width: 40px
+              height: 40px
+              border-radius: 50%
+          .sidebar-toggle
+            @include absolute($left: 0, $top: 0, $width: auto)
+            z-index: $z-navbar + 2
+          .navbar-toggle
+            @include absolute($right: 0, $top: 0, $width: auto)
+            z-index: $z-navbar + 2
+          &.logo
+            flex: 1
+
+        .navbar-brand
+          @include flex($align: center, $justify: center)
+          height: $navbar-height
+          font-size: 1.2em
+          font-weight: 300
+          position: relative
+          margin: 0 auto
+          width: 100%
+          text-align: center
+          color: $black
+
+          .highlight
+            padding: 2px 5px
+            font-weight: 200
+            color: $white
+            border-radius: 2px
+            margin-right: 5px
+            background-color: $green
+
+.app-landing
+  .navbar
+    .navbar-collapse
+      background-color: transparent
+      box-shadow: none
+@include breakpoint($sm)
+  .navbar
+    @include fixed($left: 0, $top: 0)
+    height: $navbar-height-min
+    padding: 0px
+    .navbar-header
+      height: $navbar-height-min
+      width: auto
+      .navbar-brand
+        height: $navbar-height-min
+      .navbar-toggle
+        display: block
+    .navbar-collapse
+      border-radius: 0
+      .navbar-nav
+        height: $navbar-height-min
+        display: none
+        & > li
+          &.dropdown
+            &:after, & > .dropdown-menu
+              display: none !important
+            &.notification
+              a.dropdown-toggle
+                padding: 10px
+                width: 100%
+                @include flex($align: center, $justify: flex-start)
+                .icon
+                  margin-right: 10px
+                  background-color: transparent !important
+
+                .count
+                  position: relative
+                  font-size: 0.9em
+                  width: 30px
+                  height: 30px
+
+                .title
+                  flex: 1
+                  text-align: left
+                  display: block
+            &.profile
+              border-bottom: none !important
+              & > a
+                width: 100%
+                .profile-img
+                  width: 40px
+                  height: 40px
+                  margin-right: 10px
+                .title
+                  display: block
+        &.navbar-mobile
+          display: flex
+
+  .app-container.__navbar
+    .navbar
+      .navbar-collapse
+        .navbar-nav
+          height: auto
+          display: flex
+          flex-direction: column
+          & > li
+            width: 100%
+            border-bottom: 1px solid $grey-lightest
+            &.navbar-title
+              display: none
+            &.navbar-search
+              padding: 4px
+              background-color: $grey
+              input
+                padding: 15px
+                width: 100%
+                background-color: $white
+              .btn-search
+                background-color: $white
+        .navbar-mobile
+          height: $navbar-height-min
+          flex-direction: row
+          border-bottom: none
+          & > li
+            width: auto
+
+@include breakpoint($xs)
+  .navbar
+    .navbar-header
+      .navbar-toggle
+        position: absolute
+
+@include navbar-theme($green, $white)
+@include navbar-theme($green, $dark-green, ".__inverse" )

@@ -1,0 +1,250 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+.app-messaging-container
+  @include flex($direction: column)
+  padding: 0 30px
+  margin-bottom: 30px
+  flex: 1
+
+ui-view
+  & > .app-messaging-container
+    padding: 0
+    width: 100%
+    margin-bottom: 0
+
+.app-messaging
+  @include flex($direction: row)
+  flex: 1
+  width: 100%
+  background-color: $white
+  border-radius: 3px
+  box-shadow: 0 1px 2px $grey-darker
+
+  &.collapse.in
+    display: flex
+
+  .messaging
+    @include flex($direction: column)
+    height: 100%
+    width: auto
+    min-width: auto
+    flex: 1
+    transition: all 0.3s ease
+    & > .heading
+      padding: 0 20px
+      height: 60px
+      @include flex($align: center)
+      width: 100%
+      color: $grey-darkest
+      border-bottom: 1px solid $grey
+
+      .title
+        @include flex($align: center)
+
+        .btn-back
+          font-size: 2em
+          color: $black
+          display: inline-block
+          text-decoration: none
+          width: 30px
+          text-align: center
+          @include flex($align: center)
+
+        .badge
+          margin-left: 10px
+          font-size: 0.7em
+
+    & > .footer
+      width: 100%
+      padding: 8px
+      background-color: $grey
+      .message-box
+        background-color: $white
+        border-radius: 2px
+        box-shadow: 0 1px 1px $grey-darker
+        width: 100%
+        height: 80px
+        @include flex
+        border-top: 1px solid $grey
+
+        textarea, button
+          margin-bottom: 0
+          border: 0
+          height: 100%
+          border-radius: 0
+
+        textarea
+          flex: 1
+
+        button
+          border-left: 1px solid $grey
+          color: $green
+          .fa
+            margin-right: 1rem
+
+    ul.chat
+      flex: 1
+      min-width: 0
+      @include flex($direction: column)
+      background-color: $white
+      width: 100%
+      list-style: none
+      padding: 0
+      margin: 0
+      overflow: auto
+      position: relative
+
+      & > li
+        width: 100%
+        padding: 0 20px
+        padding-right: 20%
+        margin-bottom: 10px
+
+        .message
+          background-color: $grey-lighter
+          border-radius: 3px
+          padding: 15px
+
+        .info
+          padding: 5px 0
+          font-size: 0.85em
+          color: $grey-darkest
+          @include flex($justify: flex-start)
+
+          & > *
+            margin-right: 10px
+
+        &.right
+          align-self: flex-end
+          padding-left: 20%
+          padding-right: 20px
+          text-align: right
+
+          .message
+            text-align: left
+
+          .info
+            @include flex($justify: flex-end)
+            & > *
+              margin-left: 10px
+              margin-right: 0px
+
+        &.line
+          width: 100%
+          position: relative
+          text-align: center
+          font-size: 0.9em
+          z-index: 2
+          padding-right: 20px
+          margin-top: 20px
+          margin-bottom: 20px
+          color: $grey-darkest
+
+          .title
+            background-color: $white
+            position: relative
+            z-index: 2
+            width: 140px
+            margin: 0 auto
+          &:after
+            content: ''
+            position: absolute
+            width: 50%
+            bottom: 50%
+            left: 50%
+            transform: translate(-50%, 0)
+            z-index: 1
+            border-bottom: 1px solid $grey
+
+  .chat-group
+    height: 100% !important
+    width: 300px
+    min-width: 0
+    @include flex($direction: column)
+    transition: all 0.3s ease
+
+    .heading
+      width: 100%
+      padding: 0 20px
+      height: 60px
+      @include flex($align: center)
+      color: $grey-darkest
+      border-right: 1px solid $grey
+      border-bottom: 1px solid $grey
+    ul.group
+      background-color: $white
+      flex: 1
+      width: 100%
+      padding: 0
+      list-style: none
+      margin-bottom: 0
+      border-right: 1px solid $grey
+      overflow: auto
+      position: relative
+
+      & > li
+        padding: 20px
+        &.section
+          padding: 6px 20px
+          background-color: $grey-lighter
+          border-bottom: 1px solid $grey
+          color: $grey-darkest
+          font-size: 0.9em
+
+        &.message
+          padding: 0
+          border-bottom: 1px solid $grey
+          a
+            display: block
+            text-decoration: none
+            color: $black
+            padding: 20px
+
+            .message
+              @include flex($align: center)
+              .content
+                flex: 1
+                .title
+                .description
+                  font-size: 0.8em
+                  opacity: 0.4
+              .profile
+                width: 40px
+                height: 40px
+                border-radius: 50%
+                margin-right: 8px
+
+          span.badge
+            border-radius: 3px
+            font-weight: 400
+            font-weight: 0.8em
+
+@include breakpoint($md)
+  .app-messaging
+    border-radius: 0
+    overflow: hidden
+    .chat-group, .messaging
+      min-width: 100%
+      width: 100%
+      flex: 1
+    .chat-group
+      transform: translate(0, 0)
+    .messaging
+      transform: translate(100%, 0)
+    &.collapse
+      .chat-group
+        transform: translate(0, 0)
+      .messaging
+        transform: translate(100%, 0)
+      &.in
+        display: flex
+        .chat-group
+          transform: translate(-100%, 0)
+        .messaging
+          transform: translate(-100%, 0)
+
+@include breakpoint($sm)
+  .app-messaging-container
+    padding: 0
+    margin-bottom: 0

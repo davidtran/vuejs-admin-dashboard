@@ -1,0 +1,59 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+$font-size: 14px
+
+table.table
+  & > tbody, & > thead
+    & > tr
+      td, th
+        font-size: $font-size
+        padding: 15px 30px
+  &.card-table
+    margin-bottom: 0
+    & > thead
+      & > tr
+        & > th
+          margin-left: 1px
+          font-size: 0.9em
+          background-color: $grey-lightest
+          border-bottom-color: $grey
+          color: $black-lightest
+          font-weight: 400
+          text-transform: uppercase
+          border-bottom-width: 1px
+    & > tbody
+      & > tr
+        & > td
+          border-top-color: $grey-lightest
+          color: $black-lighter
+
+.card-mini
+  table.table
+    &.card-table
+      & > tbody, & > thead
+        & > tr
+          td
+            padding: 15px 30px
+          th
+            padding: 15px 30px
+
+.table-responsive
+  border: 0
+  margin-bottom: 0
+
+@include breakpoint($sm)
+  table.table
+    & > tbody, & > thead
+      & > tr
+        td, th
+          padding: 15px 15px
+  .card-mini
+    table.table
+      &.card-table
+        & > tbody, & > thead
+          & > tr
+            td
+              padding: 15px 15px
+            th
+              padding: 15px 15px

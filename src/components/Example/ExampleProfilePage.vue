@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body app-heading">
-              <img class="profile-img" src="src/assets/images/profile.png">
+              <img class="profile-img" src="~src/assets/images/profile.png">
               <div class="app-title">
                 <div class="title"><span class="highlight">Scott White</span></div>
                 <div class="description">Frontend Developer</div>
@@ -39,7 +39,7 @@
                         <div class="media social-post">
                           <div class="media-left">
                             <a href="#">
-                              <img src="src/assets/images/profile.png">
+                              <img src="~src/assets/images/profile.png">
                             </a>
                           </div>
                           <div class="media-body">
@@ -62,7 +62,7 @@
                         <div class="media social-post">
                           <div class="media-left">
                             <a href="#">
-                              <img src="src/assets/images/profile.png">
+                              <img src="~src/assets/images/profile.png">
                             </a>
                           </div>
                           <div class="media-body">

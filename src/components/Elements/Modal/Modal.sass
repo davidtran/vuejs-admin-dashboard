@@ -1,0 +1,38 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+.modal
+  z-index: $z-modal !important
+  .modal-dialog
+    border-radius: 3px
+    .modal-content
+      background-color: $white
+      border: 3px
+      font-size: 16px
+      box-shadow: 0 1px -1px $black-lighter
+      .modal-header
+        border-top-right-radius: 2px
+        border-top-left-radius: 2px
+        background-color: $white
+        padding: 30px
+      .modal-body
+        padding: 30px
+      .modal-footer
+        border-bottom-right-radius: 2px
+        border-bottom-left-radius: 2px
+        background-color: $grey-lighter
+        .btn
+          margin-bottom: 0
+
+.modal-backdrop
+  z-index: $z-modal - 1 !important
+
+.simplio-example.__modal
+  display: block
+  .modal
+    position: relative
+    display: block
+    left: auto
+    right: auto
+    top: auto
+    z-index: 1 !important

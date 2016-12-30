@@ -1,0 +1,92 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.pricing-table
+  border-left: 1px solid $grey-lighter
+  & > .pricing-heading
+    border-bottom: 2px solid $green
+    padding: 20px
+    text-align: center
+    & > .title
+      background-color: rgba($green, 0.9)
+      color: $white
+      width: auto
+      margin: 0 auto
+      border-radius: 3px
+      padding: 2px 5px
+      display: inline-block
+      font-size: 0.9em
+      font-weight: 400
+    & > .price
+      & > .title
+        font-size: 4em
+        text-transform: uppercase
+        font-weight: 200
+        .sign
+          font-size: 0.3em
+          color: $grey-darkest
+      & > .subtitle
+        margin-top: -10px
+        font-size: 0.8em
+        font-weight: 400
+
+  & > .pricing-body
+    padding: 20px
+    color: $black-lighter
+    ul.description
+      list-style: none
+      padding: 0
+      margin: 0
+      & > li
+        padding: 15px 0px
+        text-align: center
+        margin: 0
+        border-bottom: 1px solid $grey-lighter
+        .icon
+          float: left
+          min-width: 25px
+          text-align: center
+          margin-right: 8px
+      & > li:last-child
+        border-bottom: 0
+
+  & > .pricing-footer
+    border-top: 2px solid $grey-lighter
+    text-align: center
+    padding: 15px
+
+    .btn-default
+      text-transform: uppercase
+      font-weight: 400
+      color: $black-lighter
+
+    .btn-success
+      color: $white
+
+  &.highlight
+    background-color: $green
+    & > .pricing-heading
+      border-bottom: 2px solid $green-darker
+      color: $white
+      & > .title
+        background-color: rgba($white, 0.9)
+        color: $green-darker
+      & > .price
+        color: $white
+        .sign
+          color: $white
+
+    & > .pricing-footer
+      border-top: 2px solid $green-darker
+
+      .btn-default
+        border-color: $green-darker
+        color: $green-darker
+
+    & > .pricing-body
+      color: $white
+      ul.description
+        & > li
+          border-bottom: 1px solid rgba($white, 0.2)
+        & > li:last-child
+          border-bottom: 0

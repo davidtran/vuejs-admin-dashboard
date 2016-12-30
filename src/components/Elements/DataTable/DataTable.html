@@ -1,0 +1,88 @@
+<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+  <div class="top">
+
+    <div class="dataTables_filter">
+      <label>
+        <input type="search" class="form-control input-sm" placeholder="Search..." aria-controls="DataTables_Table_0" v-model="searchBy">
+      </label>
+    </div>
+
+    <div class="dataTables_length">
+      <label>
+        <select name="DataTables_Table_0_length"
+                aria-controls="DataTables_Table_0"
+                class="form-control input-sm"
+                v-model="dataTable.options.pageCount"
+                @change="onChangePageCount()">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </label>
+    </div>
+
+  </div>
+  <table class="datatable table table-striped primary dataTable no-footer">
+    <thead>
+      <tr>
+        <th v-for="column in dataTable.columns"
+            @click="sortBy(column)"
+            :class="{sort: isSortable(column),
+                      desc: sort.sortBy === column.value && sort.desc,
+                      asc: sort.sortBy === column.value && !sort.desc}">{{column.text}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr v-for="row in paginatedRows" track-by="$index">
+        <td v-for="(item, key) in row" @click="editField(item, key)">
+          <span v-if="!item.editing">{{item.value}}</span>
+          <template v-if="isEditable(item, key)">
+            <input type="text" v-model="item.tmpValue">
+            <button type="button" @click.stop="saveEdit(item)">Save</button>
+            <button type="button" @click.stop="cancelEdit(item)">Cancel</button>
+          </template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="bottom">
+    <div class="dataTables_info">
+      Showing {{firstRow + 1}} to {{lastRow}} of {{filteredRows.length}} items
+    </div>
+
+    <div class="dataTables_paginate paging_simple_numbers">
+      <ul class="pagination">
+        <li class="paginate_button previous"
+            id="DataTables_Table_0_previous"
+            @click.prevent="togglePage('prev')"
+            :class="{disabled: currentPage == 1}">
+          <a href="#" aria-controls="DataTables_Table_0" tabindex="0">Previous</a>
+        </li>
+
+        <li class="paginate_button"
+            :class="{active: currentPage == 1}"
+            @click.prevent="togglePage(1)">
+          <a href="#" aria-controls="DataTables_Table_0" tabindex="0">1</a>
+        </li>
+
+        <li class="paginate_button"
+            :class="{active: currentPage == page + 1}"
+            @click.prevent="togglePage(page + 1)"
+            v-for="page in centerPartPage">
+          <a href="#" aria-controls="DataTables_Table_0" tabindex="0">{{ page + 1 }}</a>
+        </li>
+
+        <li class="paginate_button next"
+            @click.prevent="togglePage('next')"
+            :class="{disabled: currentPage == lastPage}">
+          <a href="#" aria-controls="DataTables_Table_0" tabindex="0">Next</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</div>

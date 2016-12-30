@@ -16,9 +16,14 @@
     "chartist": "^0.10.1",
     "chartist-plugin-pointlabels": "0.0.4",
     "font-awesome": "^4.7.0",
+    "highlightjs": "^9.8.0",
+    "jquery": "^3.1.1",
+    "select2": "^4.0.3",
     "vue": "^2.1.0",
     "vue-chartist": "^2.0.2",
+    "vue-datatable": "^1.0.4",
     "vue-router": "^2.1.1",
+    "vue-strap": "^1.1.34",
     "vuex": "^2.1.1"
   },
   "devDependencies": {

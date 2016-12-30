@@ -1,0 +1,73 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.select2
+  width: 100%
+  margin-bottom: 15px
+
+  .select2-selection--single
+    border: 1px solid $grey-darker
+    border-radius: 2px
+    height: auto
+
+    .select2-selection__rendered
+      color: $black-lighter
+      padding: 10px 15px
+
+    .select2-selection__arrow
+      height: auto
+      width: auto
+      right: 15px
+      top: 50%
+      transform: translate(-50%, 0)
+      b
+
+.select2-container
+  .select2-search--dropdown
+    background-color: $grey-lighter
+    border-bottom: 1px solid $grey-darker
+    .select2-search__field
+      border: 1px solid $grey
+
+  .select2-dropdown
+    .select2-results__option--highlighted
+      background-color: $green
+
+    .select2-results__option
+      padding: 10px 15px
+
+.ui-select-container
+  margin-bottom: 15px
+  .ui-select-match
+    .btn
+      border: 1px solid $grey-darker
+      border-radius: 2px
+      height: auto
+      padding: 10px 15px
+      padding-right: 30px
+      margin-bottom: 0
+      .ui-select-match-text
+        @include flex($align: center)
+      &:hover
+        transform: translate(0,0)
+  input.form-control
+    margin-bottom: 0
+
+  .ui-select-dropdown
+    padding: 0
+    border-radius: 1px
+
+.input-group
+  .select2
+    margin-bottom: 0
+    width: 100% !important
+    .select2-selection--single
+      border: none
+      border-right: 1px solid $grey-darker
+  .ui-select-container
+    margin-bottom: 0
+    .ui-select-match
+      .btn
+        border-radius: 0
+        border: none
+        border-right: 1px solid $grey-darker

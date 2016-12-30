@@ -1,0 +1,44 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+div.section
+  margin-bottom: 30px
+  .section-title
+    @include flex($align: center)
+    font-size: 1.2em
+    font-weight: 200
+    padding-top: 15px
+    padding-bottom: 15px
+    margin-bottom: 30px
+    color: $grey-darkest
+    border-bottom: 1px solid $grey
+
+    .icon
+      @include flex($align: center, $justify: center)
+      background-color: rgba($grey-darkest, 0.1)
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      color: rgba($grey-darkest, 0.75)
+      margin-right: 10px
+
+  .section-body
+    color: $black-lighter
+    &.__indent
+      padding-left: 40px
+
+.page-heading
+  padding: 15px
+  padding-left: 26px
+  margin-bottom: 26px
+  .title
+    font-size: 1.3em
+
+@include breakpoint($sm)
+  div.section
+    margin-bottom: 15px
+    .section-title
+      margin-bottom: 15px
+    .section-body
+      &.__indent
+        padding-left: 0px

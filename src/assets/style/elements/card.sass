@@ -1,6 +1,6 @@
-@import 'src/assets/style/config.sass'
-@import 'src/assets/style/mixin.sass'
-@import './Card.mixin'
+@import '../config.sass'
+@import '../mixin.sass'
+@import './card.mixin.sass'
 
 .card
   width: 100%
@@ -101,8 +101,8 @@
           display: block
 
     // Angular UI Tabs
-    & > .ng-isolate-scope
-      & > .nav-tabs
+
+      .nav-tabs
         background-color: $grey-lightest
         & > li
           &.active
@@ -112,11 +112,11 @@
             background-color: $white
             a
               color: $green
-      .tab-content
-        .tab-pane
-          opacity: 0
-          &.active
-            opacity: 1
+    .tab-content
+      .tab-pane
+        opacity: 0
+        &.active
+          opacity: 1
 
   &.card-tab.card-mini
     .card-header, ul.nav-tabs

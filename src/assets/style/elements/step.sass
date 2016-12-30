@@ -1,0 +1,128 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.step
+  .nav-tabs
+    border-bottom: 0px
+    margin-left: 0
+    margin-right: 0
+    margin-bottom: 20px
+    border-radius: 1px
+    @include flex
+    position: relative
+
+    & > li
+      border-right: 0
+      z-index: 2
+      flex: 1
+      margin-bottom: 0px
+      position: relative
+      overflow: hidden
+
+      &[class^="col-"]
+        padding-left: 0
+        padding-right: 0
+        border-radius: 0
+
+      & > a , uib-tab-heading
+        @include flex($align: center)
+        border: 0
+        padding: 2rem
+        padding-left: 0
+        z-index: 2
+        color: $green-darker
+
+        .icon
+          @include flex($align: center, $justify: center)
+          font-size: 2.5em
+          margin-right: 0.5em
+          width: 60px
+          height: 60px
+          min-width: 60px
+          border-radius: 50%
+          background-color: $green
+          color: $white
+        .heading
+          flex: 1
+          text-align: left
+          overflow: hidden
+          .title
+            font-weight: bold
+            font-size: 1.1em
+            margin-bottom: 1rem
+            width: 100%
+            @include ellipsis
+          .description
+            font-size: 0.8em
+            margin-bottom: 0.5rem
+            width: 100%
+            @include ellipsis
+        &:hover
+          border: 0
+          background-color: transparent
+
+      &.active
+        & > a, & > a:focus, & > a:hover, uib-tab-heading
+          background-color: transparent
+          border: 0
+          color: $green-darker
+        & > a:hover
+          cursor: pointer
+
+        & ~ li
+          & > a, & > a:focus, & > a:hover, uib-tab-heading
+            color: $grey-darkest
+            .icon
+              background-color: $grey-darker
+              color: $white
+
+          & > a  , & > a:focus , & > a:hover, uib-tab-heading
+            color: $grey-darkest
+
+          &:after
+            content: ''
+            z-index: 1
+            position: absolute
+            display: block
+            height: 4px
+            border-radius: 0px
+            top: 50%
+            transform: translate(0, -50%)
+            width: 100%
+            background-color: $grey
+
+
+      &:last-child
+        border-top-right-radius: 1px
+        border-bottom-right-radius: 1px
+
+        &:before , &:after
+          display: none
+    &:after
+      content: ''
+      z-index: 1
+      position: absolute
+      display: block
+      height: 4px
+      border-radius: 2px
+      top: 50%
+      left: 0
+      transform: translate(0, -50%)
+      width: 100%
+      background-color: $green
+
+  .tab-content
+    & > div
+      padding: 0
+
+@include breakpoint($sm)
+  .step
+    .nav-tabs
+      & > li
+        & > a , uib-tab-heading
+          justify-content: center
+          padding: 0
+          .icon
+            margin-right: 0
+          .heading
+            display: none

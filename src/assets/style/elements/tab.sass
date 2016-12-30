@@ -1,0 +1,29 @@
+.nav-tabs
+  @include flex
+  border-radius: 2px
+  margin-bottom: 15px
+
+  & > li
+    border: 0
+    margin-bottom: -2px
+
+    a, a:focus, a:hover
+      padding: 15px 30px
+      background-color: transparent
+      border: 0
+      color: $grey-darkest
+    &.active
+      a, a:focus, a:hover
+        border: 0
+        background-color: transparent
+        border-radius: 1px
+        border-bottom: 4px solid $green
+        color: $green
+
+@include breakpoint($sm)
+  .nav-tabs
+    overflow-x: auto
+    overflow-y: hidden
+    & > li
+      a, a:focus, a:hover
+        padding: 15px

@@ -1,0 +1,94 @@
+@import 'src/assets/style/config.sass'
+@import 'src/assets/style/mixin.sass'
+
+.dataTables_wrapper
+  border-radius: 2px
+  overflow: hidden
+  position: static !important
+  .top
+    @include flex
+    position: absolute
+    right: 0
+    top: 0
+    padding: 20px
+    padding-right: 45px
+    .dataTables_filter
+      width: 100%
+      flex: 1
+      margin-right: 10px
+
+      label
+        width: 100%
+        display: block
+        font-weight: normal
+        margin-bottom: 0
+      .form-control
+        width: 100%
+        min-width: 200px
+        margin-left: 0
+        color: $grey-darkest
+        margin-bottom: 0
+        padding: 10px 15px
+        height: 40px
+        border-radius: 20px
+        background-color: transparent
+    .dataTables_length
+
+      label
+        width: 100px
+        display: block
+        font-weight: normal
+        margin-bottom: 0
+      select
+        width: 100%
+        height: 40px
+      .select2
+        width: 100px !important
+        span.select2-selection
+          border: 1px solid $grey-darker
+          border-radius: 0
+          border-top-right-radius: 2px
+          border-bottom-right-radius: 2px
+          height: 43px
+          background-color: transparent
+
+        .select2-selection__rendered
+          color: #888
+          line-height: 43px
+          padding-left: 15px
+        .select2-selection__arrow
+          height: 46px
+          right: 5px
+
+        .select2-selection__single
+          .select2-selection__arrow
+            b
+              margin-top: 0
+              transform: translate(0, -50%)
+
+  .top::after ,.bottom::after
+    content: ''
+    position: relative
+    clear: both
+    display: block
+
+  .bottom
+    border-top: 2px solid $grey
+    padding: 20px 30px
+    font-size: 14px
+    .dataTables_info
+      float: left
+      color: $grey-darkest
+    .dataTables_paginate
+      float: right
+      .pagination
+        display: block
+
+  table.dataTable
+    margin-top: 0 !important
+    margin-bottom: 0 !important
+
+    & > thead
+      & >tr
+        & > th
+          background-color: $white

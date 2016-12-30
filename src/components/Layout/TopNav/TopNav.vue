@@ -6,15 +6,7 @@
     name: 'TopNav',
     computed: {
       title: function() {
-        console.log(this.$route.path)
-        switch (this.$route.path) {
-          case '/dashboard':
-            return 'Dashboard'
-          case '/messaging':
-            return 'Messaging'
-          default:
-            return 'Admin'
-        }
+        this.$route.name
       }
     }
   }

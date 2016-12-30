@@ -1,0 +1,33 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+@mixin alert-color($name, $bg-color, $color, $border-color)
+  &.alert-#{$name}
+    color: $color
+    border-color: $border-color
+    background-color: $bg-color
+
+    .alert-link
+      color: $color
+
+.alert
+  padding: 15px 20px
+  margin-bottom: 15px
+  border-radius: 3px
+  border-width: 1px
+  border-style: solid
+  font-weight: 400
+
+  .alert-link
+    text-decoration: underline
+    font-weight: 400
+
+.alert-dismissable, .alert-dismissible
+  .close
+    float: right
+    right: 0px
+
+@include alert-color("success", $green-lightest, $green-darkest, $green-lighter)
+@include alert-color("info", $blue-sky-lightest, $blue-sky-darkest, $blue-sky-lighter)
+@include alert-color("warning", $yellow-lightest, $yellow-darkest, $yellow-lighter)
+@include alert-color("danger", $red-lightest, $red-darkest, $red-lighter)

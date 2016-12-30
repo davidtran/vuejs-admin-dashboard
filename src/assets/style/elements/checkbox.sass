@@ -1,0 +1,73 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.checkbox, .radio
+  position: relative
+  margin-top: 10px !important
+  margin-bottom: 15px !important
+  input[type='checkbox'], input[type='radio']
+    position: absolute
+    left: 0
+    margin-left: 0
+    opacity: 0
+
+  label
+    padding-left: 30px
+    &:before, &:after
+      display: block
+      position: absolute
+      left: 0
+      top: 50%
+      width: 20px
+      height: 20px
+      transform: translate(0,-50%)
+      border-radius: 2px
+    &:before
+      content: ''
+      border: 1px solid $grey-darker
+      border-bottom: 2px solid $grey-darker
+    &:after
+      content: ''
+      font-family: FontAwesome
+      text-align: center
+      border-radius: 2px
+      color: $green-darker
+      font-size: 0.95em
+      border: 1px solid transparent
+
+  input:checked + label::after
+    content: '\f00c'
+    color: $white
+    background-color: $green
+    border: 1px solid $green
+    border-bottom: 2px solid $green-darker
+  &.checkbox-inline, &.radio-inline
+    padding-left: 0
+  &+.checkbox-inline
+    margin-top: 10px
+
+.radio
+  label
+    &:before, &:after
+      border-radius: 50%
+      border-bottom-width: 1px
+
+    &:after
+      width: 12px
+      height: 12px
+      left: 10px
+      transform: translate(-50%,-50%)
+
+  input:checked + label::after
+    content: ''
+    background-color: $green
+    border-bottom-width: 0
+
+  &+.radio-inline
+    margin-top: 10px
+
+
+.form-horizontal
+  .checkbox, .radio
+    min-height: auto
+    padding-top: 0

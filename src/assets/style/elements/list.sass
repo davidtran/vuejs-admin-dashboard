@@ -1,0 +1,62 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.list-group
+  position: relative
+  & > .list-group-item
+    padding: 12px 16px
+    margin-bottom: 2px
+    border-radius: 1px
+    position: relative
+    &.list-group-item
+      &-primary
+        border: 1px solid $blue-lighter
+        background-color: rgba($blue-lightest, 0.5)
+        color: $blue-darker
+      &-success
+        border: 1px solid $green-lighter
+        background-color: rgba($green-lightest, 0.5)
+        color: $green-darker
+      &-info
+        border: 1px solid $blue-sky-lighter
+        background-color: rgba($blue-sky-lightest, 0.5)
+        color: $blue-sky-darker
+      &-warning
+        border: 1px solid $yellow-lighter
+        background-color: rgba($yellow-lightest, 0.5)
+        color: $yellow-darker
+      &-danger
+        border: 1px solid $red-lighter
+        background-color: rgba($red-lightest, 0.5)
+        color: $red-darker
+  &.__timeline
+    & > .list-group-item
+      border-radius: 0
+      border: 0
+      padding-left: 40px
+      color: $green-darker
+
+      &:after
+        content: ''
+        z-index: 1
+        position: absolute
+        display: block
+        height: 16px
+        width: 16px
+        border-radius: 50%
+        left: 8px
+        top: 50%
+        transform: translate(0, -50%)
+        background-color: $green
+    &:after
+      content: ''
+      z-index: 1
+      position: absolute
+      display: block
+      width: 4px
+      left: 16px
+      top: 0
+      height: 100%
+      border-radius: 2px
+      transform: translate(-50%, 0)
+      background-color: rgba($green,0.2)

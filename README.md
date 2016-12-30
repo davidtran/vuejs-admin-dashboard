@@ -1,6 +1,8 @@
-# learn-vue
+# Vue Admin Dashboard
 
-> A Vue.js project
+> A beautiful, responsive admin dashboard by Vue
+
+![Screenshot](https://cloud.githubusercontent.com/assets/1154740/21566241/ee5d3396-ced3-11e6-85d1-616171003cd0.png)
 
 ## Build Setup
 
@@ -14,5 +16,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -74,14 +74,24 @@
         <div class="dropdown-menu">
           <ul>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li>
-            <li><a href="@@path/pages/form.html">Form</a></li>
-            <li><a href="@@path/pages/profile.html">Profile</a></li>
-            <li><a href="@@path/pages/search.html">Search</a></li>
+            <li>
+              <router-link to="/example-form">Form</router-link>
+            </li>
+            <li>
+              <router-link to="/example-profile">Profile</router-link>
+            </li>
+            <li>
+              <router-link to="/example-search">Search</router-link>
+            </li>
             <li class="line"></li>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
             <!-- <li><a href="@@path/pages/landing.html">Landing</a></li> -->
-            <li><a href="@@path/pages/login.html">Login</a></li>
-            <li><a href="@@path/pages/register.html">Register</a></li>
+            <li>
+              <router-link to="/login">Login</router-link>
+            </li>
+            <li>
+              <router-link to="/register">Register</router-link>
+            </li>
             <!-- <li><a href="@@path/pages/404.html">404</a></li> -->
           </ul>
         </div>

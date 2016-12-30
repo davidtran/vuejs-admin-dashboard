@@ -37,5 +37,8 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   router,
-  template: '<router-view class="view"></router-view>'
+  template: `
+  <div class="app app-default">
+    <router-view class="view"></router-view>
+  </div>`
 }).$mount('#app')

@@ -1,0 +1,146 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.app-login
+  background: $green
+  padding: 0 !important
+
+  .app-body
+    position: relative
+    display: flex
+
+    .app-block
+      transition: all 0.2s ease
+      background-color: $white
+      border-radius: 2px
+      position: relative
+      @include flex($align: center, $justify: center)
+
+      .app-right-section
+        background-color: $green-darker
+        border-top-left-radius: 2px
+        border-bottom-left-radius: 2px
+        height: 100%
+        position: relative
+        padding: 4rem 6rem
+
+        .app-brand
+          font-size: 1.5em
+          font-weight: 200
+          color: $white
+          padding-bottom: 4rem
+          margin-bottom: 4rem
+          border-bottom: 1px solid rgba($green-darkest,  0.25)
+          .highlight
+            color: $green-darker
+            background-color: rgba($white,1)
+            border-radius: 2px
+            padding: 2px 8px
+            font-weight: 200
+
+        .app-info
+          ul.list
+            list-style: none
+            padding: 0
+            margin: 0
+            li
+              margin-bottom: 2rem
+              @include flex($align: center)
+
+              .icon
+                @include flex($align: center, $justify: center)
+                display: block
+                margin: 0 auto
+                background-color: $white
+                color: $green-darker
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                transition: all 0.2s ease
+
+                i.fa, i.ion
+                  width: 100%
+                  height: 100%
+                  font-size: 2em
+                  @include flex($align: center, $justify: center)
+                  transition: all 0.2s ease
+
+              .title
+                flex: 1
+                font-weight: 300
+                padding: 0 1rem
+                font-size: 0.9em
+                color: $white
+
+      .app-form
+        padding: 4rem
+        position: relative
+        flex: 1
+
+        .form-header
+          @include flex($align: center, $justify: center)
+          font-size: 2em
+          font-weight: 200
+          color: $black
+          margin-bottom: 4rem
+
+          .highlight
+            font-weight: 400
+            color: $green
+            margin-right: 2px
+
+        .form-suggestion
+          margin-bottom: 15px
+
+        form
+          min-width: 280px
+          .btn-submit
+            width: 100%
+
+        .form-line
+          width: 100%
+          position: relative
+          text-align: center
+          font-size: 0.9em
+          z-index: 2
+          margin-top: 20px
+          margin-bottom: 20px
+          color: $grey-darkest
+
+          .title
+            background-color: $white
+            position: relative
+            z-index: 2
+            width: 50px
+            margin: 0 auto
+          &:after
+            content: ''
+            position: absolute
+            width: 50%
+            bottom: 50%
+            left: 50%
+            transform: translate(-50%, 0)
+            z-index: 1
+            border-bottom: 1px solid $grey
+
+        .form-footer
+          text-align: center
+          .btn
+            margin: 0 auto
+
+  &.__loading
+
+    .app-block
+      @include blur(2px)
+      transform: scale(0.8)
+
+    .loader-container
+      color: $white
+      font-size: 2em
+      font-weight: 200
+      .sk-folding-cube
+        .sk-cube
+          &:before
+            background-color: $white
+    &:after
+      background-color: rgba($green, 0.75)

@@ -9,10 +9,19 @@ import Table from './components/UIKits/Table/Table.vue'
 import IconPage from './components/UIKits/IconPage/IconPage.vue'
 import PriceTablePage from './components/UIKits/PriceTablePage.vue'
 import ChartPage from './components/UIKits/ChartPage.vue'
+import ExampleFormPage from './components/Example/ExampleFormPage.vue'
+import ExampleProfilePage from './components/Example/ExampleProfilePage.vue'
+import ExampleSearchPage from './components/Example/ExampleSearchPage.vue'
+import ExampleLoginPage from './components/Example/ExampleLoginPage.vue'
+import ExampleRegisterPage from './components/Example/ExampleRegisterPage.vue'
 
 export default [
   {
     path: '/',
+    redirect: '/app'
+  },
+  {
+    path: '/app',
     component: App,
     children: [
       {
@@ -64,8 +73,28 @@ export default [
         path: '/chart',
         component: ChartPage,
         name: 'Chart'
+      },
+      {
+        path: '/example-form',
+        component: ExampleFormPage
+      },
+      {
+        path: '/example-profile',
+        component: ExampleProfilePage
+      },
+      {
+        path: '/example-search',
+        component: ExampleSearchPage
       }
     ]
+  },
+  {
+    path: '/login',
+    component: ExampleLoginPage
+  },
+  {
+    path: '/register',
+    component: ExampleRegisterPage
   }
 
 ]

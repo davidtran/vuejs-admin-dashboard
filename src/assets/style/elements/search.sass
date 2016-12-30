@@ -1,0 +1,51 @@
+@import '../config.sass'
+@import '../mixin.sass'
+
+.search-result
+  background-color: $white
+  border-radius: 3px
+
+  & > .footer
+    padding: 20px 30px
+
+  & > ul.result
+    list-style: none
+    padding: 0
+    margin: 0
+    & > li
+      border-radius: 0px
+      border-bottom: 1px solid $grey-lighter
+      padding: 20px 30px
+      @include flex
+      .img
+        margin-right: 20px
+        margin-bottom: 0
+        img
+          max-width: 200px
+          height: auto
+      .info
+        a
+          color: $black-lighter
+        .title
+          font-size: 1.2em
+          margin-bottom: 5px
+          color: $black-lighter
+          .highlight
+            color: $green
+        .description
+          color: $grey-darkest
+          font-size: 0.9em
+
+@include breakpoint($sm)
+  .search-result
+    & > .footer
+      padding: 15px
+    & > ul.result
+      & > li
+        padding: 15px
+        flex-direction: column
+        .img
+          margin-bottom: 15px
+          margin-right: 0
+          img
+            max-width: 100%

@@ -18,7 +18,7 @@ import ExampleRegisterPage from './components/Example/ExampleRegisterPage.vue'
 export default [
   {
     path: '/',
-    redirect: '/app'
+    redirect: '/dashboard'
   },
   {
     path: '/app',
